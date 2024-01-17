@@ -4,12 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start:dev": "concurrently \"npm run client\" \"npm run server\"",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "build": "webpack --mode production",
+    "install": "echo 'Your install script here'",
+    "client": "webpack-dev-server --open --mode development --config client/webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,9 @@
     "if-env": "^1.0.4"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.22",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
